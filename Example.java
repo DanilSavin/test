@@ -39,8 +39,8 @@ public class Example {
             check2(data[0]);
             check2(data[1]);
             operation();
-            isAlpha(data[0]);
-            isAlpha(data[1]);
+//            isAlpha(data[0]);
+//            isAlpha(data[1]);
         } else if (expression.contains("-")) {
             action = '-';
             check(expression);
@@ -48,22 +48,24 @@ public class Example {
             check2(data[0]);
             check2(data[1]);
             operation();
-            isAlpha(data[0]);
-            isAlpha(data[1]);
+//            isAlpha(data[0]);
+//            isAlpha(data[1]);
         } else if (expression.contains("*")) {
             action = '*';
             check(expression);
             data = expression.split("\\*");
             check2(data[0]);
+            string2();
             operation();
-            isAlpha(data[0]);
+//            isAlpha(data[0]);
         } else if (expression.contains("/")) {
             action = '/';
             check(expression);
             data = expression.split("/");
             check2(data[0]);
+            string2();
             operation();
-            isAlpha(data[0]);
+//            isAlpha(data[0]);
         } else {
             throw new Exception("неверный знак");
         }
@@ -97,14 +99,17 @@ public class Example {
         }
         return numb;
     }
-        public static void isAlpha(String expression) throws Exception {
-            if (!(expression  != null && expression.matches("^[a-zA-Z]*$"))){
-                throw new Exception("ошибка строк");
-            }
-        }
+//        public static void isAlpha(String expression) throws Exception {
+//            if (!(expression  != null && expression.matches("^[a-zA-Z]*$"))){
+//                throw new Exception("ошибка строк");
+//            }
+//        }
         public static void operation(){
             data[0]= data[0].replaceAll("\"","").replaceAll(" ","");
             data[1] = data[1].replaceAll("\"","").replaceAll(" ","");
+        }
+        public static void string2() throws Exception {
+                if (data[1].contains("\"")) throw new Exception("Строчку можно делить или умножать только на число");
         }
         }
 
